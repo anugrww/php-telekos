@@ -1,29 +1,11 @@
-# DOKUMENTASI API TELEKOS UNTUK PHP
+# 🚀 Dokumentasi API Telekos untuk PHP
 
-Sumber: https://api.telekos.my.id/docs/
-
----
-
-# AUTENTIKASI
-
-Kirim API key di setiap request.
-
-## Header (Direkomendasikan)
-
-```http
-GET https://api.telekos.my.id/api/balance
-x-api-key: telekos_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-## Query Parameter
-
-```http
-GET https://api.telekos.my.id/api/balance?apikey=telekos_xxxxxxxx
-```
+> Dokumentasi resmi API Telekos untuk integrasi layanan OTP & virtual number menggunakan PHP.  
+> Source: https://api.telekos.my.id/docs/
 
 ---
 
-# BASE URL
+# 📌 Base URL
 
 ```txt
 https://api.telekos.my.id
@@ -31,20 +13,41 @@ https://api.telekos.my.id
 
 ---
 
-# RESPON STANDARD
+# 🔐 Autentikasi API
 
-## Success
+Kirim API Key di setiap request.
+
+## ✅ Menggunakan Header (Direkomendasikan)
+
+```http
+GET https://api.telekos.my.id/api/balance
+x-api-key: telekos_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+---
+
+## ✅ Menggunakan Query Parameter
+
+```http
+GET https://api.telekos.my.id/api/balance?apikey=telekos_xxxxxxxx
+```
+
+---
+
+# 📦 Format Respon Standard
+
+## ✅ Success
 
 ```json
 {
   "ok": true,
-  "data": {
-    
-  }
+  "data": {}
 }
 ```
 
-## Error
+---
+
+## ❌ Error
 
 ```json
 {
@@ -55,25 +58,31 @@ https://api.telekos.my.id
 
 ---
 
-# ENDPOINT: CEK SALDO
+# 💰 Endpoint — Cek Saldo
 
-- **Method:** `GET`
-- **URL:** `https://api.telekos.my.id/api/balance`
-
-## Parameter
-
-| Nama | Tipe | Wajib | Keterangan |
-|---|---|---|---|
-| x-api-key | header | Ya | API key kamu |
-
-## Contoh Request
+## 📍 Request
 
 ```http
-GET https://api.telekos.my.id/api/balance
-x-api-key: telekos_xxxxxxxxxxxxxxxxx
+GET /api/balance
 ```
 
-## Respon
+### Header
+
+| Parameter | Type | Wajib | Keterangan |
+|---|---|---|---|
+| x-api-key | string | ✅ | API Key akun Telekos |
+
+---
+
+## 🌐 Full URL
+
+```txt
+https://api.telekos.my.id/api/balance
+```
+
+---
+
+## ✅ Contoh Respon
 
 ```json
 {
@@ -84,18 +93,25 @@ x-api-key: telekos_xxxxxxxxxxxxxxxxx
 
 ---
 
-# ENDPOINT: DAFTAR NEGARA
+# 🌍 Endpoint — Daftar Negara
 
-- **Method:** `GET`
-- **URL:** `https://api.telekos.my.id/api/countries`
-
-## Contoh Request
+## 📍 Request
 
 ```http
-GET https://api.telekos.my.id/api/countries
+GET /api/countries
 ```
 
-## Respon
+---
+
+## 🌐 Full URL
+
+```txt
+https://api.telekos.my.id/api/countries
+```
+
+---
+
+## ✅ Contoh Respon
 
 ```json
 {
@@ -117,24 +133,45 @@ GET https://api.telekos.my.id/api/countries
 
 ---
 
-# ENDPOINT: DAFTAR LAYANAN
+# 🛒 Endpoint — Daftar Layanan
 
-- **Method:** `GET`
-- **URL:** `https://api.telekos.my.id/api/services`
-
-## Parameter
-
-| Nama | Tipe | Wajib | Keterangan |
-|---|---|---|---|
-| country | number/string | Ya | ID atau ISO negara, contoh: `6` atau `id` |
-
-## Contoh Request
+## 📍 Request
 
 ```http
-GET https://api.telekos.my.id/api/services?country=id
+GET /api/services
 ```
 
-## Respon
+---
+
+## 📥 Parameter
+
+| Parameter | Type | Wajib | Keterangan |
+|---|---|---|---|
+| country | number/string | ✅ | ID atau ISO negara |
+
+### Contoh
+
+```txt
+6
+```
+
+atau
+
+```txt
+id
+```
+
+---
+
+## 🌐 Full URL
+
+```txt
+https://api.telekos.my.id/api/services
+```
+
+---
+
+## ✅ Contoh Respon
 
 ```json
 {
@@ -163,19 +200,26 @@ GET https://api.telekos.my.id/api/services?country=id
 
 ---
 
-# ENDPOINT: BUAT ORDER
+# 📲 Endpoint — Buat Order
 
-- **Method:** `POST`
-- **URL:** `https://api.telekos.my.id/api/order`
+## 📍 Request
 
-## Parameter
+```http
+POST /api/order
+```
 
-| Nama | Tipe | Wajib | Keterangan |
+---
+
+## 📥 Parameter
+
+| Parameter | Type | Wajib | Keterangan |
 |---|---|---|---|
-| service | string | Ya | Kode layanan, contoh: `wa`, `ig`, `fb` |
-| country | number/string | Ya | ID atau ISO negara, contoh: `6` atau `id` |
+| service | string | ✅ | Kode layanan |
+| country | number/string | ✅ | ID atau ISO negara |
 
-## Contoh Request
+---
+
+## ✅ Contoh Request
 
 ```json
 {
@@ -184,7 +228,17 @@ GET https://api.telekos.my.id/api/services?country=id
 }
 ```
 
-## Respon
+---
+
+## 🌐 Full URL
+
+```txt
+https://api.telekos.my.id/api/order
+```
+
+---
+
+## ✅ Contoh Respon
 
 ```json
 {
@@ -204,20 +258,33 @@ GET https://api.telekos.my.id/api/services?country=id
 
 ---
 
-# ENDPOINT: CEK OTP
+# 📩 Endpoint — Cek OTP
 
-- **Method:** `GET`
-- **URL:** `https://api.telekos.my.id/api/status/:activationId`
+## 📍 Request
 
-## Parameter
-
-| Nama | Tipe | Wajib | Keterangan |
-|---|---|---|---|
-| activationId | string | Ya | ID dari `POST /api/order` |
+```http
+GET /api/status/:activationId
+```
 
 ---
 
-## Respon Menunggu OTP
+## 📥 Parameter
+
+| Parameter | Type | Wajib | Keterangan |
+|---|---|---|---|
+| activationId | string | ✅ | ID dari endpoint order |
+
+---
+
+## 🌐 Full URL
+
+```txt
+https://api.telekos.my.id/api/status/:activationId
+```
+
+---
+
+# ⏳ Respon Menunggu OTP
 
 ```json
 {
@@ -227,7 +294,9 @@ GET https://api.telekos.my.id/api/services?country=id
 }
 ```
 
-## Respon OTP Diterima
+---
+
+# ✅ Respon OTP Diterima
 
 ```json
 {
@@ -238,7 +307,9 @@ GET https://api.telekos.my.id/api/services?country=id
 }
 ```
 
-## Respon Expired / Dibatalkan
+---
+
+# ❌ Respon Expired / Dibatalkan
 
 ```json
 {
@@ -250,18 +321,25 @@ GET https://api.telekos.my.id/api/services?country=id
 
 ---
 
-# ENDPOINT: BATALKAN ORDER
+# 🚫 Endpoint — Cancel Order
 
-- **Method:** `POST`
-- **URL:** `https://api.telekos.my.id/api/cancel`
+## 📍 Request
 
-## Parameter
+```http
+POST /api/cancel
+```
 
-| Nama | Tipe | Wajib | Keterangan |
+---
+
+## 📥 Parameter
+
+| Parameter | Type | Wajib | Keterangan |
 |---|---|---|---|
-| activationId | string | Ya | ID dari `POST /api/order` |
+| activationId | string | ✅ | ID order |
 
-## Contoh Request
+---
+
+## ✅ Contoh Request
 
 ```json
 {
@@ -269,7 +347,17 @@ GET https://api.telekos.my.id/api/services?country=id
 }
 ```
 
-## Respon
+---
+
+## 🌐 Full URL
+
+```txt
+https://api.telekos.my.id/api/cancel
+```
+
+---
+
+## ✅ Contoh Respon
 
 ```json
 {
@@ -282,24 +370,24 @@ GET https://api.telekos.my.id/api/services?country=id
 
 ---
 
-# KODE ERROR
+# ⚠️ Kode Error API
 
-| Kode Error | Keterangan |
+| Error Code | Keterangan |
 |---|---|
 | INVALID_KEY | API key tidak valid |
 | MISSING_PARAM | Parameter wajib tidak ada |
 | NO_SALDO | Saldo tidak cukup |
 | NO_STOK | Stok nomor habis |
-| ORDER_FAILED | Gagal membuat order — coba lagi |
+| ORDER_FAILED | Gagal membuat order |
 | ORDER_NOT_FOUND | activationId tidak ditemukan |
-| CANCEL_ERROR | Gagal membatalkan order — coba lagi |
-| STATUS_ERROR | Gagal mengecek status — coba lagi |
-| SERVICE_ERROR | Gagal mengambil data layanan — coba lagi |
+| CANCEL_ERROR | Gagal membatalkan order |
+| STATUS_ERROR | Gagal mengecek status |
+| SERVICE_ERROR | Gagal mengambil layanan |
 | SERVER_ERROR | Kesalahan internal server |
 
 ---
 
-# REFERENSI NEGARA
+# 🌎 Referensi Negara
 
 | ID | Negara | ISO |
 |---|---|---|
@@ -316,26 +404,30 @@ GET https://api.telekos.my.id/api/services?country=id
 
 ---
 
-# CATATAN UNTUK PHP
+# 🧠 Catatan Penting untuk PHP
 
-- Gunakan cURL atau Guzzle untuk request HTTP.
-- Simpan `activationId` dari respon order untuk cek OTP dan cancel.
-- Poll endpoint status tiap 5–10 detik sampai OTP masuk atau expired.
-- Order expired otomatis dalam 15 menit jika tidak ada OTP, saldo dikembalikan.
-- Jangan expose API key ke publik.
+- Gunakan `cURL` atau `Guzzle` untuk request HTTP.
+- Simpan `activationId` dari order.
+- Gunakan endpoint status untuk cek OTP.
+- Polling endpoint status setiap `5-10 detik`.
+- Order otomatis expired dalam `15 menit`.
+- Saldo otomatis kembali jika order expired.
+- Jangan pernah expose API key ke publik.
 - Semua transaksi menggunakan saldo akun Telekos.
-- Daftar lengkap negara dapat diambil real-time lewat `GET /api/countries`.
+- Daftar negara terbaru bisa diambil realtime dari endpoint:
+
+```txt
+GET /api/countries
+```
 
 ---
 
-# CONTOH IMPLEMENTASI PHP (cURL)
+# 🧪 Contoh Request PHP (cURL)
 
-## Cek Saldo
+## ✅ Cek Saldo
 
 ```php
 <?php
-
-$apiKey = "telekos_xxxxxxxxxxxxxxxxx";
 
 $ch = curl_init();
 
@@ -343,7 +435,7 @@ curl_setopt_array($ch, [
     CURLOPT_URL => "https://api.telekos.my.id/api/balance",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_HTTPHEADER => [
-        "x-api-key: $apiKey"
+        "x-api-key: telekos_xxxxxxxxxxxxxxxxx"
     ]
 ]);
 
@@ -356,12 +448,10 @@ echo $response;
 
 ---
 
-## Buat Order
+# 🧪 Contoh Buat Order PHP
 
 ```php
 <?php
-
-$apiKey = "telekos_xxxxxxxxxxxxxxxxx";
 
 $data = [
     "service" => "wa",
@@ -377,7 +467,7 @@ curl_setopt_array($ch, [
     CURLOPT_POSTFIELDS => json_encode($data),
     CURLOPT_HTTPHEADER => [
         "Content-Type: application/json",
-        "x-api-key: $apiKey"
+        "x-api-key: telekos_xxxxxxxxxxxxxxxxx"
     ]
 ]);
 
@@ -390,12 +480,11 @@ echo $response;
 
 ---
 
-## Cek OTP
+# 🧪 Contoh Cek OTP PHP
 
 ```php
 <?php
 
-$apiKey = "telekos_xxxxxxxxxxxxxxxxx";
 $activationId = "48291047";
 
 $ch = curl_init();
@@ -404,7 +493,7 @@ curl_setopt_array($ch, [
     CURLOPT_URL => "https://api.telekos.my.id/api/status/$activationId",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_HTTPHEADER => [
-        "x-api-key: $apiKey"
+        "x-api-key: telekos_xxxxxxxxxxxxxxxxx"
     ]
 ]);
 
@@ -417,33 +506,8 @@ echo $response;
 
 ---
 
-## Cancel Order
+# 🎯 Penutup
 
-```php
-<?php
+Dokumentasi ini dibuat agar integrasi API Telekos lebih mudah digunakan pada project PHP maupun backend lainnya.
 
-$apiKey = "telekos_xxxxxxxxxxxxxxxxx";
-
-$data = [
-    "activationId" => "48291047"
-];
-
-$ch = curl_init();
-
-curl_setopt_array($ch, [
-    CURLOPT_URL => "https://api.telekos.my.id/api/cancel",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => json_encode($data),
-    CURLOPT_HTTPHEADER => [
-        "Content-Type: application/json",
-        "x-api-key: $apiKey"
-    ]
-]);
-
-$response = curl_exec($ch);
-
-curl_close($ch);
-
-echo $response;
-```
+Semoga membantu 🚀
